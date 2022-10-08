@@ -4,6 +4,7 @@ import { StyledPhonebook } from './Phonebook.styled';
 import ContactForm from "../ContactForm/ContactForm";
 import ContactList from "../ContactList/ContactList";
 import Filter from "../Filter/Filter";
+import { useState } from "react";
 
 const INITIAL_STATE = {
     contacts: [
@@ -15,7 +16,25 @@ const INITIAL_STATE = {
     filter: '',
 }
 
-export class Phonebook extends Component {
+export default function Phonebook() {
+    const [contacts, setContacts] = useState([]);
+    const [filter, setFilter] = useState('');
+
+    
+
+
+  return (
+        <StyledPhonebook>
+            <h1>Phonebook</h1>
+            <ContactForm onSubmit={this.addContact} />
+            <h2>Contacts</h2>
+            
+            {contactsList.length !== 0 ? <div><Filter contactName={filter} onFilterChange={this.changeFilter} /> <ContactList contacts={filteredContacts} removeContact={this.removeContact} /> </div> : "There are no contacts in your Phonebook. Please add contact."}
+        </StyledPhonebook>
+    )
+}
+
+export class Phonebook1 extends Component {
     state = {
         ...INITIAL_STATE
     };
