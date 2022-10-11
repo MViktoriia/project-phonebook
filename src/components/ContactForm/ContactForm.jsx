@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import { StyledForm, StyledLabel, StyledInput, StyledButton } from './ContactForm.styled';
-import PropTypes from 'prop-types';
 import { useState } from "react";
+import PropTypes from 'prop-types';
 
 function ContactForm({ onSubmit }) {
     const [name, setName] = useState("");

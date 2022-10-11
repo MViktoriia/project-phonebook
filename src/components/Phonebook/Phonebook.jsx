@@ -1,117 +1,71 @@
 import { nanoid } from "nanoid";
-import { Component } from "react";
 import { StyledPhonebook } from './Phonebook.styled';
+import { useState , useEffect } from "react";
 import ContactForm from "../ContactForm/ContactForm";
 import ContactList from "../ContactList/ContactList";
 import Filter from "../Filter/Filter";
-import { useState } from "react";
 
-const INITIAL_STATE = {
-    contacts: [
-        // { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-        // { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-        // { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-        // { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-    ],
-    filter: '',
-}
+// const INITIAL_STATE = {
+//     contacts: [
+//         // { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+//         // { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+//         // { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+//         // { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+//     ],
+//     filter: '',
+// }
 
-export default function Phonebook() {
+export function Phonebook() {
     const [contacts, setContacts] = useState([]);
     const [filter, setFilter] = useState('');
 
-    
-
-
-  return (
-        <StyledPhonebook>
-            <h1>Phonebook</h1>
-            <ContactForm onSubmit={this.addContact} />
-            <h2>Contacts</h2>
-            
-            {contactsList.length !== 0 ? <div><Filter contactName={filter} onFilterChange={this.changeFilter} /> <ContactList contacts={filteredContacts} removeContact={this.removeContact} /> </div> : "There are no contacts in your Phonebook. Please add contact."}
-        </StyledPhonebook>
-    )
-}
-
-export class Phonebook1 extends Component {
-    state = {
-        ...INITIAL_STATE
-    };
-
-    componentDidMount() {
+    useEffect(() => {
         const contacts = JSON.parse(localStorage.getItem('contacts'));
         if (contacts && contacts.length) {
-            console.log('calling');
-            this.setState({
-            contacts,
-        })
+            setContacts(contacts);
         }
-    }
+    },[]);
 
-    componentDidUpdate(prevProps, prevState) {
-        const { contacts } = this.state;
-        if (prevState.contacts !== contacts) {
-            localStorage.setItem('contacts', JSON.stringify(contacts));
-        }
-        
-    }
+    useEffect(() => {
+        localStorage.setItem('contacts', JSON.stringify(contacts));
+    }, [contacts]); 
 
-    addContact = (contact) => {
+    const addContact = (contact) => {
 
-        if (this.isDuplicate(contact)) {
+        if (isDuplicate(contact)) {
             alert(`${contact.name} is already in contacts`)
             return
         };
 
-        this.setState(({ contacts }) => {
+        setContacts((contacts) => {
             const newContact = { id: nanoid(), ...contact }
-            return {
-                contacts: [...contacts, newContact],
-            }
+            return [...contacts, newContact]
         });
     };
 
-    removeContact = ( id ) => {
-        this.setState((({contacts}) => {
-            const newContacts = contacts.filter((contact) => contact.id !== id);
-
-            return {
-                contacts: [...newContacts]
-            };
-        }))
-    }
-
-    changeFilter = (e) => {
-        this.setState({
-            filter: e.currentTarget.value,
-        })
+    const removeContact = (id) => {
+        setContacts((contacts) => contacts.filter((contact) => contact.id !== id))
     };
 
-    getNormalizedFilter = () => {
-        return this.state.filter.toLowerCase();
-    }
+    const changeFilter = (e) => setFilter(e.currentTarget.value);
 
-    isDuplicate = ({ name }) => {
-        const { contacts } = this.state;
-        const result = contacts.find(item => item.name === name);
-        return result;
-    }
+    const getNormalizedFilter = () => filter.toLowerCase();
 
-    render() {
-        const { contacts: contactsList, filter } = this.state;
-        const normalizedFilter = this.getNormalizedFilter();
-        const filteredContacts = contactsList.filter((contact) => contact.name.toLowerCase().includes(normalizedFilter));
+    const isDuplicate = ({ name }) => {
+        return contacts.find(item => item.name === name);
+    };
+
+    const normalizedFilter = getNormalizedFilter();
+    const filteredContacts = contacts.filter((contact) => contact.name.toLowerCase().includes(normalizedFilter));
 
 
-        return (
-            <StyledPhonebook>
-                <h1>Phonebook</h1>
-                <ContactForm onSubmit={this.addContact} />
-                <h2>Contacts</h2>
-                
-                {contactsList.length !== 0 ? <div><Filter contactName={filter} onFilterChange={this.changeFilter} /> <ContactList contacts={filteredContacts} removeContact={this.removeContact} /> </div> : "There are no contacts in your Phonebook. Please add contact."}
-            </StyledPhonebook>
-        )
-    }
+    return (
+        <StyledPhonebook>
+            <h1>Phonebook</h1>
+            <ContactForm onSubmit={addContact} />
+            <h2>Contacts</h2>
+            
+            {contacts.length !== 0 ? <div><Filter contactName={filter} onFilterChange={changeFilter} /> <ContactList contacts={filteredContacts} removeContact={removeContact} /> </div> : "There are no contacts in your Phonebook. Please add contact."}
+        </StyledPhonebook>
+    )
 };
