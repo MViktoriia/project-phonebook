@@ -1,11 +1,11 @@
-import { combineReducers } from "@reduxjs/toolkit";
+// import { combineReducers } from "@reduxjs/toolkit";
 
-import items from "./items/itemsSlice";
-import filter from "./filter/filterSlice";
+// import items from "./items/itemsSlice";
+// import filter from "./filter/filterSlice";
 
-const contactsReducer = combineReducers({
-    items,
-    filter,
-});
+// const contactsReducer = combineReducers({
+//     items,
+//     filter,
+// });
 
-export default contactsReducer;
+// export default contactsReducer;

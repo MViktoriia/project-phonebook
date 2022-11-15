@@ -1,15 +1,15 @@
-export const getContacts = store => store.contacts.items.items;
+export const getContacts = store => store.contacts.items;
 
 
-export const getFilteredContacts = ({ contacts }) => {
-    const { items, filter } = contacts;
+export const getFilteredContacts = (store) => {
+    const { contacts, filter } = store;
     
     if (!filter) {
-        return items.items;
+        return contacts.items;
     }
 
     const normalizedFilter = filter.toLowerCase();
-    const filteredContacts = items.items.filter((item) => {
+    const filteredContacts = contacts.items.filter((item) => {
         const normalizedName = item.name.toLocaleLowerCase();
         const result = normalizedName.includes(normalizedFilter);
         return result;

@@ -6,7 +6,6 @@ import { getFilteredContacts } from "redux/contacts/items/itemsSelectors";
 
 const ContactList = () => {
     const filteredContacts = useSelector(getFilteredContacts);
-    console.log(filteredContacts);
     const dispatch = useDispatch();
 
     const onRemoveContact = (id) => {
