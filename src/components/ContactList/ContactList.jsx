@@ -1,11 +1,12 @@
 import ContactItem from "../ContactItem/ContactItem";
 // redux
 import { useSelector, useDispatch } from "react-redux";
-import { removeContact } from "redux/contacts/items/itemsSlice";
+import { removeContact } from "redux/contacts/items/itemsOperations";
 import { getFilteredContacts } from "redux/contacts/items/itemsSelectors";
 
 const ContactList = () => {
     const filteredContacts = useSelector(getFilteredContacts);
+    console.log(filteredContacts);
     const dispatch = useDispatch();
 
     const onRemoveContact = (id) => {

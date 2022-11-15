@@ -4,7 +4,7 @@ import { useState } from "react";
 // redux
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts } from "redux/contacts/items/itemsSelectors";
-import { addContact } from "redux/contacts/items/itemsSlice";
+import { addContact } from "redux/contacts/items/itemsOperations";
 
 
 function ContactForm() {
@@ -12,6 +12,10 @@ function ContactForm() {
     const [number, setNumber] = useState("");
     const contacts = useSelector(getContacts);
     const dispatch = useDispatch();
+
+    const isDuplicate = ({ name }) => {
+        return contacts.find(item => item.name === name);
+    };
 
     const handleChange = (event) => {
         switch (event.target.name) {
@@ -37,11 +41,6 @@ function ContactForm() {
         setName("");
         setNumber("");
     }
-
-    const isDuplicate = ({ name }) => {
-        return contacts.find(item => item.name === name);
-    };
-
 
     return (
         <StyledForm onSubmit = {handleSubmit}>

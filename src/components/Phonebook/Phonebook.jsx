@@ -2,13 +2,20 @@ import { StyledPhonebook } from './Phonebook.styled';
 import ContactForm from "../ContactForm/ContactForm";
 import ContactList from "../ContactList/ContactList";
 import Filter from "../Filter/Filter";
-
+import { useEffect } from 'react';
 // redux
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getContacts } from "redux/contacts/items/itemsSelectors";
+import { fetchContacts } from 'redux/contacts/items/itemsOperations';
+
 
 export function Phonebook() {
-    const contacts = useSelector(getContacts);    
+    const contacts = useSelector(getContacts);
+    const dispatch = useDispatch();
+    
+    useEffect(() => {
+        dispatch(fetchContacts());
+    }, [dispatch]);
 
     return (
         <StyledPhonebook>
