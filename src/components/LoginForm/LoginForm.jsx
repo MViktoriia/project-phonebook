@@ -1,17 +1,39 @@
 import { StyledForm, StyledLabel, StyledInput, StyledButton } from '../ContactForm/ContactForm.styled';
 import { nanoid } from 'nanoid';
-export default function LoginForm() {
+import { useState } from 'react';
+export default function LoginForm() {  
+    
+    const [email, setEmail] = useState("");  
+    const [password, setPassword] = useState("");
+    
+    const handleChange = (event) => {
+        switch (event.target.name) {
+            case 'email':
+                return setEmail(event.target.value);
+            case 'password':
+                return setPassword(event.target.value);
+            default:
+                return;
+        }
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // const authData = { 'email': email, "password": password };
+
+        setEmail("");
+        setPassword("");
+    }
 
     return (
-        <StyledForm onSubmit >
+        <StyledForm onSubmit={handleSubmit} >
             <StyledLabel> Email
                 <StyledInput
                     id = {nanoid()}
                     type="email"
                     name="email"
-                    value
-                    onChange
-                    pattern=".+@globex\.com"
+                    value={email}
+                    onChange={handleChange}
                     required
                     />
             </StyledLabel>
@@ -20,13 +42,12 @@ export default function LoginForm() {
                     id = {nanoid()}
                     type="password"
                     name="password"
-                    value
-                    onChange
-                    minlength="8"
+                    value={password}
+                    onChange={handleChange}
                     required
                 />
             </StyledLabel>
-            <StyledButton type="submit">Register</StyledButton>
+            <StyledButton type="submit">Log in</StyledButton>
         </StyledForm>
     )
 }
