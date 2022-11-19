@@ -46,8 +46,7 @@ export const getCurrentUser = createAsyncThunk("auth/current", async(_, { reject
         const persistedToken = auth.token;
 
         if (!persistedToken) {
-            console.log("No token");
-            rejectWithValue();
+            rejectWithValue('Unable to fetch user');
         };
         
         const {data} = await api.getCurrentUser(persistedToken);
