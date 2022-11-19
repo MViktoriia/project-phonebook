@@ -12,8 +12,10 @@ export const StyledButton = styled.button`
     cursor: pointer;
     font-size: 12px;
     font-family: Roboto, Verdana, Tahoma, sans;
-    padding: 12px 16px;
-    margin-left: 10px;
+    padding: 8px 20px;
+    margin: 10px 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     border-radius: 100px;
     color: #fff;
     background: #2196F3;

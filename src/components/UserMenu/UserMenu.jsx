@@ -11,7 +11,7 @@ export default function UserMenu() {
     return (
         <Wrapper>
             <p>{user.email}</p>
-            <StyledButton onClick={()=>{dispatch(action)}}>Exit</StyledButton>
+            <StyledButton onClick={()=>{dispatch(action)}}>Log out</StyledButton>
         </Wrapper>
     )
 }

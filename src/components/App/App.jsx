@@ -1,4 +1,3 @@
-// import { Wrapper } from './App.styled';
 import Layout from "components/Layout/Layout";
 import PrivateRoute from "components/PrivateRoute/PrivateRoute";
 import PublicRoute from "components/PublicRoute/PublicRoute";
