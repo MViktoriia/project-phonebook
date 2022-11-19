@@ -29,18 +29,14 @@ export const login = async (loginData) => {
 
 export const logout = async () => {
     const { data } = await instance.post("/users/logout");
+    token.unset();
     return data;
 }
 
-export const getCurrentUser = async (token) => {
-    try {
-        token.set(token);
-        const { data } = await instance.get("/users/current");
-        return data;
-    } catch (error) {
-        token.unset();
-        // throw error;
-    }
+export const getCurrentUser = async (persistedToken) => {
+    token.set(persistedToken);
+    const data = await instance.get("/users/current");
+    return data;
 }
 
 export default instance;

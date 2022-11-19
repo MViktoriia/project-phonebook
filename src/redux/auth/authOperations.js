@@ -40,19 +40,24 @@ export const logout = createAsyncThunk("auth/logout", async (_, { rejectWithValu
     }
 })
 
-export const current = createAsyncThunk(
-    "auth/current",
-    async(_, { rejectWithValue, getState }) => {
-        try {
-            const { auth } = getState();
-            const result = await api.getCurrentUser(auth.token);
-            return result;
-        } catch ({response}) {
-            const error = {
-                status: response.status,
-                message: response.data.message
-            }
-            return rejectWithValue(error);
+export const getCurrentUser = createAsyncThunk("auth/current", async(_, { rejectWithValue, getState }) => {
+    try {
+        const { auth } = getState();
+        const persistedToken = auth.token;
+
+        if (!persistedToken) {
+            console.log("No token");
+            rejectWithValue();
+        };
+        
+        const {data} = await api.getCurrentUser(persistedToken);
+        return data;
+    } catch ({response}) {
+        const error = {
+            status: response.status,
+            message: response.data.message
         }
+        return rejectWithValue(error);
+    }
     }
 )

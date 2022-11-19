@@ -1,10 +1,13 @@
 import { StyledForm, StyledLabel, StyledInput, StyledButton } from '../ContactForm/ContactForm.styled';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from 'redux/auth/authOperations';
 export default function LoginForm() {  
     
     const [email, setEmail] = useState("");  
     const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
     
     const handleChange = (event) => {
         switch (event.target.name) {
@@ -19,7 +22,9 @@ export default function LoginForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // const authData = { 'email': email, "password": password };
+        const authData = { 'email': email, "password": password };
+
+        dispatch(login(authData));
 
         setEmail("");
         setPassword("");

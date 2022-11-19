@@ -29,8 +29,6 @@ export default function RegisterForm() {
         event.preventDefault();
         const registerData = { 'name': name, 'email': email, "password": password };
         dispatch(register(registerData));
-
-
         setUserName("");
         setEmail("");
         setPassword("");
