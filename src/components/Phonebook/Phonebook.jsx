@@ -25,7 +25,8 @@ export function Phonebook() {
             <h1>Phonebook</h1>
             <ContactForm />
             <h2>Contacts</h2>
-            {isLoading ? <RotatingLines strokeColor="grey" width="50"/> : contacts.length !== 0 ? <div><Filter /><ContactList /> </div> : <p>There are no contacts in your Phonebook.</p>}
+            {isLoading && <RotatingLines strokeColor="grey" width="50"/> }
+            {contacts.length !== 0 ? <div><Filter /><ContactList /> </div> : <p>There are no contacts in your Phonebook.</p>}
             {error && <p>Something went wrong. We are working on it.</p>}            
         </StyledPhonebook>
     )
