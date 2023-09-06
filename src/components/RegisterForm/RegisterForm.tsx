@@ -1,6 +1,6 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
-import { StyledForm, StyledLabel, StyledInput, StyledButton } from '../ContactForm/ContactForm.styled';
+import { StyledForm, StyledLabel, StyledInput } from '../ContactForm/ContactForm.styled';
 import { useState } from 'react';
 import { register } from 'redux/auth/authOperations';
 import { useAppDispatch } from 'redux/hooks';

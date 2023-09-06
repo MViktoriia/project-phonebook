@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { getisLoggedInStatus } from "redux/auth/authSelectors";
 import { NavList, StyledLink } from "./Navigation.styled";
-import Logo from "components/Logo/Logo";
+
 
 export default function Navigation() {
     const isLoggedIn = useSelector(getisLoggedInStatus);
