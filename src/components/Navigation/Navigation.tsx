@@ -1,14 +1,15 @@
 import { useSelector } from "react-redux";
 import { getisLoggedInStatus } from "redux/auth/authSelectors";
 import { NavList, StyledLink } from "./Navigation.styled";
+import Logo from "components/Logo/Logo";
 
 export default function Navigation() {
     const isLoggedIn = useSelector(getisLoggedInStatus);
     return (
         <NavList>
-            <ul><StyledLink to="/" end>Home</StyledLink></ul>
+            <StyledLink to="/" end>Home</StyledLink>
             
-            {isLoggedIn && <ul><StyledLink to="/contacts">Contacts</StyledLink></ul>}
+            {isLoggedIn ? <ul><StyledLink to="/contacts">Contacts</StyledLink></ul> : null}
         </NavList>
     )
 }

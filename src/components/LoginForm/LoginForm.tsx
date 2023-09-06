@@ -1,3 +1,4 @@
+import Button from 'components/Button/Button';
 import { StyledForm, StyledLabel, StyledInput, StyledButton } from '../ContactForm/ContactForm.styled';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
@@ -52,7 +53,7 @@ export default function LoginForm() {
                     required
                 />
             </StyledLabel>
-            <StyledButton type="submit">Log in</StyledButton>
+            <Button type="submit">Log in</Button>
         </StyledForm>
     )
 };

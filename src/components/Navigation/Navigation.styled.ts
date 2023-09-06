@@ -17,7 +17,7 @@ export const StyledLink = styled(NavLink)`
 
 export const NavList = styled.ul`
   display: flex;
-  &.not: (: last-child) {
+  &:not(:last-child) {
     margin-right: 50px;
   }
 `;

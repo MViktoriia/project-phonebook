@@ -4,8 +4,8 @@ import UserMenu from "components/UserMenu/UserMenu";
 import { getisLoggedInStatus } from "redux/auth/authSelectors";
 import { StyledNav, StyledHeader } from "./AppBar.styled";
 import { useAppSelector } from "redux/hooks";
-import Logo from "components/Logo/Logo";
 import Container from "components/Container/Container";
+import Logo from "components/Logo/Logo";
 
 
 export default function AppBar() {

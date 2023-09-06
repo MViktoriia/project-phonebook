@@ -4,6 +4,7 @@ import { StyledForm, StyledLabel, StyledInput, StyledButton } from '../ContactFo
 import { useState } from 'react';
 import { register } from 'redux/auth/authOperations';
 import { useAppDispatch } from 'redux/hooks';
+import Button from 'components/Button/Button';
 
 export default function RegisterForm() {
 
@@ -70,7 +71,7 @@ export default function RegisterForm() {
                     required
                 />
             </StyledLabel>
-            <StyledButton type="submit">Register</StyledButton>
+            <Button type="submit">Register</Button>
         </StyledForm>
     )
 }

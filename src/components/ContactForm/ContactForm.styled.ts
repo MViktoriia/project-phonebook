@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
 export const StyledForm = styled.form`
+    margin: 0 auto;
     max-width: fit-content;
-    padding: 20px 200px 20px 20px;
-    border-color: black;
-    border: 1px solid;
+    min-width: 250px;
+    padding: 30px 30px 30px 30px;
+    /* border: 1px solid; */
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0px 5px 50px 0px rgba(0, 0, 0, 0.15);
 `
 export const StyledLabel = styled.label`
     display: block;
@@ -14,9 +18,13 @@ export const StyledLabel = styled.label`
 export const StyledInput = styled.input`
     display: block;
     margin-top: 5px;
+    padding: 5px;
     border-width: 1px;
     border-style: solid;
+    border-radius: 15px;
     border-color: #c8c5c5;
+    height: 25px;
+    width: 95%;
 `
 export const StyledButton = styled.button`
     border: none;

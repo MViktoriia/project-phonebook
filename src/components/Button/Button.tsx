@@ -3,12 +3,13 @@ import { StyledButton } from './Button.styled';
 
 type Props = {
     children: React.ReactNode;
-    onClick: ()=> void;
+    onClick?: ()=> void;
+    type?: 'button' | 'submit' | 'reset' | undefined;
 }
 
-function Button({children, onClick}: Props) {
+function Button({children, onClick, type}: Props) {
   return (
-    <StyledButton onClick={onClick}>{children}</StyledButton>
+    <StyledButton type={type} onClick={onClick}>{children}</StyledButton>
   )
 };
 

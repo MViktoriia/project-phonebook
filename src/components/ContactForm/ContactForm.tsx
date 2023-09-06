@@ -1,11 +1,12 @@
 import { nanoid } from 'nanoid';
-import { StyledForm, StyledLabel, StyledInput, StyledButton } from './ContactForm.styled';
+import { StyledForm, StyledLabel, StyledInput } from './ContactForm.styled';
 import { useState } from "react";
 // redux
 
 import { getContacts } from "redux/contacts/items/itemsSelectors";
 import { addContact } from "redux/contacts/items/itemsOperations";
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
+import Button from 'components/Button/Button';
 
 
 function ContactForm() {
@@ -70,7 +71,7 @@ function ContactForm() {
                     required
                     />
             </StyledLabel>
-            <StyledButton type="submit">Add contact</StyledButton>
+            <Button type="submit">Add contact</Button>
         </StyledForm>
     )   
 };
