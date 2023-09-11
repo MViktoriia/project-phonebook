@@ -7,5 +7,4 @@ export const StyledPhonebook = styled.div`
     margin-right: auto;
     font-family: Roboto, Verdana, Tahoma, sans;
     padding: 10px 25px;
-    // background-color: white;
 `

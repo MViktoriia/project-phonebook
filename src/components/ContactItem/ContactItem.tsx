@@ -1,4 +1,4 @@
-import { StyledButton, Contact } from './ContactItem.styled';
+import { StyledButton, Contact, ContactName, ContactNamber, ContactInfo } from './ContactItem.styled';
 
 type Props = {
     id: string;
@@ -10,7 +10,13 @@ type Props = {
 const ContactItem = ({ id, name, number, onClick }: Props) => {
     return (
         <>
-            <Contact>{name}: {number} <StyledButton type='button' onClick={()=> onClick(id)}>Delite</StyledButton></Contact>
+            <Contact>
+                <ContactInfo>
+                    <ContactName>{name}</ContactName>
+                    <ContactNamber>{number} </ContactNamber>
+                </ContactInfo>
+                <StyledButton type='button' onClick={()=> onClick(id)}>X</StyledButton>
+            </Contact>
         </>
     );
 }; 

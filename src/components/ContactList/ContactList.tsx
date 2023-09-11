@@ -3,6 +3,7 @@ import ContactItem from "../ContactItem/ContactItem";
 import { removeContact } from "redux/contacts/items/itemsOperations";
 import { getFilteredContacts } from "redux/contacts/items/itemsSelectors";
 import { useAppDispatch, useAppSelector } from "redux/hooks";
+import { StyledList } from "./ContactList.styled";
 
 const ContactList = () => {
     const filteredContacts = useAppSelector(getFilteredContacts);
@@ -15,11 +16,11 @@ const ContactList = () => {
 
 
     return (
-        <ul>
+        filteredContacts.length ? <StyledList>
             {filteredContacts.map(({id, name, number }) => (
                 <ContactItem key={id} id={id} name={name} number={number} onClick={onRemoveContact} />
             ))}
-        </ul>
+        </StyledList> : <p>Sorry, no contacts match the filter</p>
     );
 };
 

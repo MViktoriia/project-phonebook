@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledButton = styled.button`
+    width: 20px;
+    height: 20px;
     border: none;
     display: inline-block;
     text-align: center;
@@ -8,9 +10,9 @@ export const StyledButton = styled.button`
     cursor: pointer;
     font-size: 11px;
     font-family: Roboto, Verdana, Tahoma, sans;
-    padding: 5px 12px;
+    padding: 2px 2px 2px 2px;
     margin-left: 10px;
-    border-radius: 100px;
+    border-radius: 50%;
     color: #fff;
     background: #9b59b6;
     &:hover {
@@ -24,7 +26,22 @@ export const StyledButton = styled.button`
     }
 `
 export const Contact = styled.li`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 50px 0px rgba(0, 0, 0, 0.15);
     &:not(:last-child) {
-        margin-bottom: 15px;
+        margin-bottom: 5px;
     }
 `
+export const ContactName = styled.div`
+    margin-bottom: 5px;
+`
+export const ContactNamber = styled.div`
+    color: #6e5f5f;
+    font-size: 12px;
+    padding-left: 2px;
+`
+export const ContactInfo = styled.div``
