@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 import { StyledForm, StyledLabel, StyledInput } from './ContactForm.styled';
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 // redux
 
 import { getContacts } from "redux/contacts/items/itemsSelectors";
@@ -8,8 +8,11 @@ import { addContact } from "redux/contacts/items/itemsOperations";
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
 import Button from 'components/Button/Button';
 
+type Props = {
+    setModalOpen: React.Dispatch<SetStateAction<boolean>>;
+}
 
-function ContactForm() {
+function ContactForm({setModalOpen}: Props) {
     const [name, setName] = useState("");
     const [number, setNumber] = useState("");
     const contacts = useAppSelector(getContacts);
@@ -44,6 +47,7 @@ function ContactForm() {
 
         setName("");
         setNumber("");
+        setModalOpen(false);
     }
 
     return (
