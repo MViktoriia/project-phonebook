@@ -13,13 +13,18 @@ const moovingText = keyframes`
     }   
 `
 
+export const StyledMain = styled.main`
+    height: 100%;
+    min-height: 100vh;
+`
+
 export const HomeContainer = styled(ContainerStyled)`
     position: relative;
 `
 
 export const TextWrapper = styled.div`
     text-align: center;
-    padding-top: 200px;
+    padding-top: 30vh;
     padding-left: 40px;
     width: 50%;
     overflow-y: hidden;
@@ -50,7 +55,7 @@ export const CircleBig = styled.div`
     height: 585px;
     border-radius: 50%;
     background: rgba(64, 163, 248, 0.08);
-    top: 0px;
+    top: 25px;
     right: 40px;
     animation: breath linear;
     animation-duration: 3s;
@@ -79,7 +84,7 @@ export const CircleMedium = styled.div`
     height: 442px;
     border-radius: 50%;
     background: rgba(64, 163, 248, 0.08);
-    top: 70px;
+    top: 95px;
     right: 110px;
     animation: breath linear;
     animation-duration: 3s;
@@ -111,7 +116,7 @@ export const Orbit = styled.div`
     border-radius: 50%;
     border: 2px solid #FFF;
     box-shadow: 0px 2px 4px 0px rgba(100, 100, 100, 0.04);
-    top: 123px;
+    top: 148px;
     right: 165px;
     transform: translateY(-30px);
 
@@ -152,7 +157,7 @@ export const CircleWite = styled.div`
     border-radius: 50%;
     background-color: #FFF;
     box-shadow: 0px 4px 22px 0px rgba(0, 0, 0, 0.05);
-    top: 215px;
+    top: 240px;
     right: 255px;
     transform: translateY(-30px);
 `
@@ -167,23 +172,7 @@ export const Phone = styled.div`
     background-size: contain;
     background-repeat: no-repeat;
     box-shadow: 0px 4px 22px 0px rgba(0, 0, 0, 0.05);
-    /* animation: breath linear infinite;
-    animation-duration: 1.7s;
-    @keyframes breath {
-        from {
-                transform: 
-                           scale(1);
-        }
-        to {
-                transform: scale(1.2);
-        }
-    } */
-    
-    //on white circl
-    /* top: 100px;
-    right: 255px; */
-    //center
-    top: 253px;
+    top: 278px;
     right: 293px;
     transform: translateY(-30px);
 `

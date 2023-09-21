@@ -3,6 +3,7 @@ import Heading from 'components/Heading/Heading'
 
 import LoginForm from 'components/LoginForm/LoginForm'
 import Section from 'components/Section/Section'
+import { StyledMain } from 'pages/HomePage/HomePage.styled'
 
 
 import { HeaderWrapper} from 'pages/RegisterPage/RegisterPage.styled'
@@ -10,7 +11,7 @@ import React from 'react'
 
 export default function LoginPage() {
     return (
-        <main>
+        <StyledMain>
             <Section>
                 <Container>
                     <HeaderWrapper>
@@ -19,6 +20,6 @@ export default function LoginPage() {
                     <LoginForm/>
                 </Container>
             </Section>    
-        </main>        
+        </StyledMain>        
     )
 }

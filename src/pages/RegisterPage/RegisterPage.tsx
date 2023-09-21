@@ -4,10 +4,11 @@ import Section from 'components/Section/Section'
 import React from 'react'
 import { HeaderWrapper } from './RegisterPage.styled'
 import Heading from 'components/Heading/Heading'
+import { StyledMain } from 'pages/HomePage/HomePage.styled'
 
 export default function RegisterPage() {
     return (
-        <main>
+        <StyledMain>
             <Section>
                 <Container>
                     <HeaderWrapper>
@@ -16,6 +17,6 @@ export default function RegisterPage() {
                     <RegisterForm/>
                 </Container>
             </Section>       
-        </main>
+        </StyledMain>
     )
 }

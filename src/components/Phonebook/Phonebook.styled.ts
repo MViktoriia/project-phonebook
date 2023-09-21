@@ -3,11 +3,11 @@ import styled from 'styled-components';
 export const StyledPhonebook = styled.div`
     position: relative;
     max-width: 800px;
-    height: 100vh;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     font-family: Roboto, Verdana, Tahoma, sans;
-    padding: 100px 25px;
+    padding-top: 100px;
+    padding-left: 25px;
+    padding-right: 25px;
 `
 
 export const AddContactButton = styled.button`
